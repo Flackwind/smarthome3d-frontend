@@ -1,0 +1,24 @@
+# Initial configuration for a new Home Assistant Container installation.
+# Copy to ha-config/configuration.yaml only for a new installation.
+# Do not add tokens or passwords to this example.
+default_config:
+
+homeassistant:
+  name: Casa
+  time_zone: Europe/Rome
+  unit_system: metric
+  country: IT
+  currency: EUR
+
+http:
+  cors_allowed_origins:
+    - http://localhost:4300
+    - http://127.0.0.1:4300
+    - http://localhost:4200
+    - http://127.0.0.1:4200
+    - http://localhost:8080
+    - http://127.0.0.1:8080
+
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml

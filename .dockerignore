@@ -1,0 +1,15 @@
+node_modules
+.npm-cache
+.angular
+.git
+.agents
+.codex
+.aws
+dist
+test-results
+playwright-report
+infrastructure/docker/ha-config
+.env
+.env.*
+*.local
+

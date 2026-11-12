@@ -1,0 +1,1 @@
+{ "name": "@sh3d/geometry-engine", "version": "0.1.0", "private": true, "type": "module", "exports": "./src/index.ts" }

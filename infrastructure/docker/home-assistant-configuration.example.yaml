@@ -1,0 +1,9 @@
+# Merge this section into YOUR existing configuration.yaml, if REST CORS is needed.
+# WebSocket auth also depends on reaching /api/websocket through your proxy.
+http:
+  cors_allowed_origins:
+    - http://localhost:4200
+    - http://127.0.0.1:4200
+    - http://localhost:8080
+# Behind an HTTPS reverse proxy, configure use_x_forwarded_for and trusted_proxies
+# using only the actual proxy address. Never use an unrestricted network range.

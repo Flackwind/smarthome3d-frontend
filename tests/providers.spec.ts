@@ -1,0 +1,8 @@
+import { describe,it,expect } from 'vitest';
+import { commandToService, fromHassState, isCompatible } from '@sh3d/device-model';
+import { MockSmartHomeProvider } from '../apps/web/src/app/core/providers/mock.provider';
+describe('Smart home providers',()=>{
+  it('runs fully offline and publishes commands as real state updates',async()=>{const p=new MockSmartHomeProvider();let updates=0;const off=p.subscribeToUpdates(()=>updates++);await p.connect();await p.executeCommand('light.mock_living',{type:'power',value:false});expect(p.getDeviceState('light.mock_living')?.state).toBe('off');await p.executeCommand('vacuum.mock_robot',{type:'start'});expect(p.getDeviceState('vacuum.mock_robot')?.state).toBe('cleaning');expect(updates).toBe(4);off();p.disconnect();expect(updates).toBe(4);await expect(p.executeCommand('light.mock_living',{type:'power',value:true})).rejects.toThrow('disconnesso');});
+  it('checks per-entity capabilities and mapping compatibility',()=>{const p=new MockSmartHomeProvider();const led=p.getDeviceState('light.mock_kitchen')!;expect(isCompatible('bulb',led)).toBe(true);expect(isCompatible('vacuum',led)).toBe(false);expect(()=>commandToService(led,{type:'color',value:[255,0,0]})).toThrow('non supportata');expect(()=>commandToService(led,{type:'brightness',value:101})).toThrow();expect(commandToService(led,{type:'brightness',value:50})).toMatchObject({domain:'light',service:'turn_on',target:{entity_id:led.entityId},service_data:{brightness_pct:50}});});
+  it('does not invent vacuum features from a domain alone',()=>{const d=fromHassState({entity_id:'vacuum.real',state:'idle',attributes:{supported_features:4}});expect(d.capabilities).toEqual(['pause']);});
+});

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", "module": "ESNext", "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"], "strict": true,
+    "noImplicitOverride": true, "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true, "useDefineForClassFields": false,
+    "skipLibCheck": true, "esModuleInterop": true, "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@sh3d/home-model": ["packages/home-model/src/index.ts"],
+      "@sh3d/geometry-engine": ["packages/geometry-engine/src/index.ts"],
+      "@sh3d/device-model": ["packages/device-model/src/index.ts"],
+      "@sh3d/floorplan-engine": ["packages/floorplan-engine/src/index.ts"]
+    }
+  },
+  "angularCompilerOptions": { "strictTemplates": true, "strictInjectionParameters": true }
+}

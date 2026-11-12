@@ -1,0 +1,1 @@
+{"index":"/index.html","assetGroups":[{"name":"app","installMode":"prefetch","resources":{"files":["/index.html","/*.css","/*.js","/manifest.webmanifest","/icon*"]}},{"name":"pdf","installMode":"lazy","resources":{"files":["/*.mjs","/pdf-wasm/**"]}}],"navigationUrls":["/**","!/**/*.*","!/api/**","!/auth/**"]}
