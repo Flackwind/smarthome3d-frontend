@@ -100,3 +100,11 @@ Frontend, backend, and HA can share one machine. Rendering and PDFs run in the b
 - `services/floorplan-ai`: future contract only; no AI service.
 
 The MVP implements the complete local workflow. Floor-plan generation requires review and testing against your document. A new server deployment and Android installation require testing in their target environments. The optional backend adds central storage and an owner profile that restores the last home and HA authorization on sign-in, including after restarts. Semantic AI, native Roborock paths/arbitrary zones, 3D gizmos, family accounts with separate permissions, and an APK remain out of scope. PostgreSQL is configurable; persistence tests use H2 on disk. See [architecture](docs/ARCHITECTURE.md), [data model](docs/DATA_MODEL.md), and [roadmap](docs/ROADMAP.md).
+
+## Support this project
+
+Smart Home 3D is still under active development. New features and improvements will be added over time.
+
+If you find this project useful, consider supporting its development with a donation. Thank you for your support!
+
+[Donate via PayPal](https://www.paypal.me/flackwind)
